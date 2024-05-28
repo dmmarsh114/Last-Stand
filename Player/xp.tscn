@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://drslwr6bxr7ar"]
+
+[ext_resource type="Script" path="res://Player/xp.gd" id="1_n0bfk"]
+[ext_resource type="Texture2D" uid="uid://cnyp3j8utf76g" path="res://icon.svg" id="1_o137o"]
+
+[node name="XP" type="Area2D"]
+script = ExtResource("1_n0bfk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0.0313726, 1)
+scale = Vector2(0.281089, 0.281089)
+texture = ExtResource("1_o137o")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.281089, 0.281089)
+polygon = PackedVector2Array(64, -59.6, 64, 59, 59.6, 64, -59, 64, -64, 59.6, -64, -59.6, -59, -63.9, 59, -64)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://day7v111rnsk0"]
+[gd_scene load_steps=5 format=3 uid="uid://day7v111rnsk0"]
 
 [ext_resource type="Texture2D" uid="uid://cnyp3j8utf76g" path="res://icon.svg" id="1_3ir77"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_5ke1i"]
+[ext_resource type="PackedScene" uid="uid://bbre2y8wquiv5" path="res://Weapons/projectile_spawner.tscn" id="3_v7udw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1sw8k"]
 size = Vector2(111, 111)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 5
+collision_mask = 0
 script = ExtResource("1_5ke1i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -15,3 +18,21 @@ texture = ExtResource("1_3ir77")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_1sw8k")
+
+[node name="ProjectileSpawner" parent="." instance=ExtResource("3_v7udw")]
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(100, 5)
+offset_left = -49.0
+offset_top = -124.0
+offset_right = 51.0
+offset_bottom = -97.0
+
+[node name="XPBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(100, 5)
+offset_left = -49.0
+offset_top = -96.0
+offset_right = 51.0
+offset_bottom = -69.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
