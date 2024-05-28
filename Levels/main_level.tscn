@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnkfa4uraq6k5"]
+
+[ext_resource type="Texture2D" uid="uid://cnyp3j8utf76g" path="res://icon.svg" id="1_a31oy"]
+[ext_resource type="PackedScene" uid="uid://day7v111rnsk0" path="res://Player/player.tscn" id="1_u7qmr"]
+
+[node name="MainLevel" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.027451, 1, 0.231373, 0.729412)
+position = Vector2(501, 239)
+scale = Vector2(7.55738, 7.97727)
+texture = ExtResource("1_a31oy")
+
+[node name="Player" parent="." instance=ExtResource("1_u7qmr")]
+position = Vector2(226, 128)
