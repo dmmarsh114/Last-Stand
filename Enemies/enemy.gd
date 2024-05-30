@@ -8,7 +8,7 @@ var player: CharacterBody2D
 var is_attacking: bool = false
 @export var damage = 10
 @export var max_hitpoints: int = 50
-var hitpoints := max_hitpoints:
+var hitpoints : int:
 	set(value):
 		hitpoints = value
 		if hitpoints <= 0:
@@ -21,6 +21,7 @@ var hitpoints := max_hitpoints:
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
+	hitpoints = max_hitpoints
 
 func _physics_process(_delta: float) -> void:
 	velocity = Vector2.ZERO

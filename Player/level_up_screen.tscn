@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqilvwq54xrt1"]
+
+[ext_resource type="Script" path="res://Player/level_up_screen.gd" id="1_sex4t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_obrfj"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_554gm"]
+font_size = 30
+
+[node name="LevelUpScreen" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sex4t")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Level Up!!"
+label_settings = SubResource("LabelSettings_obrfj")
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Choose a stat to boost:"
+label_settings = SubResource("LabelSettings_554gm")
+horizontal_alignment = 1
+
+[node name="IncreaseDamage" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "Increase Damage"
+
+[node name="IncreaseSpeed" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "Increase Speed"
+
+[node name="ReduceAttackCooldown" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "Reduce Attack Cooldown
+"
+
+[node name="RestoreHealth" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "Restore Health
+"
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/IncreaseDamage" to="." method="_on_increase_damage_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/IncreaseSpeed" to="." method="_on_increase_speed_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/ReduceAttackCooldown" to="." method="_on_reduce_attack_cooldown_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/RestoreHealth" to="." method="_on_restore_health_pressed"]

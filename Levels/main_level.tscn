@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnkfa4uraq6k5"]
+[gd_scene load_steps=5 format=3 uid="uid://bnkfa4uraq6k5"]
 
 [ext_resource type="Texture2D" uid="uid://cnyp3j8utf76g" path="res://icon.svg" id="1_a31oy"]
 [ext_resource type="PackedScene" uid="uid://day7v111rnsk0" path="res://Player/player.tscn" id="1_u7qmr"]
 [ext_resource type="PackedScene" uid="uid://xbs27udpp45r" path="res://Enemies/enemy.tscn" id="3_bn8ic"]
 [ext_resource type="Script" path="res://Levels/EnemySpawner.gd" id="3_dwgns"]
-[ext_resource type="Script" path="res://Levels/DifficultyManager.gd" id="4_p5iqh"]
 
 [node name="MainLevel" type="Node2D"]
 
@@ -70,8 +69,5 @@ position = Vector2(1531, 970)
 
 [node name="Marker2D6" type="Marker2D" parent="EnemyContainer/EnemySpawnPoints"]
 position = Vector2(1531, -18)
-
-[node name="DifficultyManager" type="Node" parent="."]
-script = ExtResource("4_p5iqh")
 
 [connection signal="timeout" from="EnemyContainer/EnemySpawner/SpawnCooldown" to="EnemyContainer/EnemySpawner" method="_on_spawn_cooldown_timeout"]
