@@ -12,7 +12,7 @@ script = ExtResource("1_3800w")
 
 [node name="Player" parent="." instance=ExtResource("1_u7qmr")]
 position = Vector2(226, 128)
-xp_to_next_level = 1
+base_speed = 200.0
 
 [node name="LevelContents" type="Node2D" parent="."]
 
@@ -77,7 +77,7 @@ position = Vector2(1531, 970)
 position = Vector2(1531, -18)
 
 [node name="GameTimer" type="Timer" parent="."]
-wait_time = 180.0
+wait_time = 300.0
 one_shot = true
 autostart = true
 

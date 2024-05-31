@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgs27v3m5yk2r"]
+[gd_scene load_steps=7 format=3 uid="uid://bgs27v3m5yk2r"]
 
 [ext_resource type="Script" path="res://Menus/GameStartScreen.gd" id="1_3r6nv"]
+[ext_resource type="PackedScene" uid="uid://bnkfa4uraq6k5" path="res://Levels/main_level.tscn" id="2_tias0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dloyr"]
 bg_color = Color(0, 0, 0, 1)
@@ -11,6 +12,10 @@ font_size = 64
 [sub_resource type="LabelSettings" id="LabelSettings_sch36"]
 font_size = 35
 
+[sub_resource type="LabelSettings" id="LabelSettings_l4tdv"]
+font_size = 35
+font_color = Color(0, 0, 0, 1)
+
 [node name="GameStartScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -19,6 +24,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3r6nv")
+main_level = ExtResource("2_tias0")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -37,66 +43,63 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "- Last Stand -"
+text = "- The Deadliest Game -"
 label_settings = SubResource("LabelSettings_om26i")
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Your teammates are gone."
+text = "Your teammates are gone. Help is on the way."
 label_settings = SubResource("LabelSettings_sch36")
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "WASD to move. "
-label_settings = SubResource("LabelSettings_sch36")
-horizontal_alignment = 1
-
-[node name="Label4" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "Your gun fires automatically."
-label_settings = SubResource("LabelSettings_sch36")
-horizontal_alignment = 1
-
-[node name="Label6" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "Survive 5 minutes to win. "
-label_settings = SubResource("LabelSettings_sch36")
-horizontal_alignment = 1
-
-[node name="Label7" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "Good luck!!"
-label_settings = SubResource("LabelSettings_sch36")
-horizontal_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="PanelContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="StartButton" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+[node name="InstructionContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+
+[node name="InstructionLabel" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer/MarginContainer3/InstructionContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "placeholder"
+label_settings = SubResource("LabelSettings_l4tdv")
+horizontal_alignment = 1
+
+[node name="ControlsButton" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer/MarginContainer3/InstructionContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "How do I play?"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="StartButton" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Let's do this!!"
 
-[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="QuitButton" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer/HBoxContainer/MarginContainer2"]
+[node name="QuitButton" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Actually, I'm good 👍"
+text = "Actually, that sounds scary. Goodbye"
 
-[connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/HBoxContainer/MarginContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/HBoxContainer/MarginContainer2/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/MarginContainer3/InstructionContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/MarginContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/MarginContainer2/QuitButton" to="." method="_on_quit_button_pressed"]
