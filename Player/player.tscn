@@ -1,23 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://day7v111rnsk0"]
+[gd_scene load_steps=6 format=3 uid="uid://day7v111rnsk0"]
 
-[ext_resource type="Texture2D" uid="uid://cnyp3j8utf76g" path="res://icon.svg" id="1_3ir77"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_5ke1i"]
+[ext_resource type="Texture2D" uid="uid://byj8mu7dbva5p" path="res://Assets/sheet_characters_cropped.png" id="2_bympd"]
 [ext_resource type="PackedScene" uid="uid://bbre2y8wquiv5" path="res://Weapons/projectile_spawner.tscn" id="3_v7udw"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uq8vd"]
-radius = 64.0781
+[sub_resource type="AtlasTexture" id="AtlasTexture_454hh"]
+atlas = ExtResource("2_bympd")
+region = Rect2(0, 0, 20, 31)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hnm8u"]
+radius = 19.0
+height = 42.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 5
-collision_mask = 0
+collision_mask = 8
 script = ExtResource("1_5ke1i")
 xp_to_next_level = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_3ir77")
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_454hh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_uq8vd")
+shape = SubResource("CapsuleShape2D_hnm8u")
 
 [node name="ProjectileSpawner" parent="." instance=ExtResource("3_v7udw")]
 

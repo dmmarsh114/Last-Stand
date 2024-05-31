@@ -3,6 +3,8 @@ extends CharacterBody2D
 signal player_died
 signal leveled_up
 
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
 @export var base_speed := 300.0
 
 @onready var health_bar: ProgressBar = $HealthBar
@@ -35,14 +37,16 @@ func _physics_process(delta: float) -> void:
 
 func move() -> void:
 	var speed = base_speed + (Globals.player_speed_mult * base_speed)
-
+	
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if direction:
 		velocity = direction * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.y = move_toward(velocity.y, 0, speed)
-
+	
+	sprite_2d.rotation = velocity.angle()
+	
 	move_and_slide()
 
 func level_up() -> void:

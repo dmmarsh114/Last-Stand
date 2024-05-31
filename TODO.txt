@@ -3,11 +3,14 @@
 - Add game timer
 > Enemy spawn/damage scales over time
 - Add main menu, pause, and game over screens
-> Set level boundaries
+- Set level boundaries
 > New enemy types
+
+> Fonts
+> Text outlines
 
 > Pause menu?
 > Score system?
-> Assets
-> Level up Particle effects
+- Assets
+- Level up Particle effects
 > SFX

@@ -1,43 +1,58 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnkfa4uraq6k5"]
+[gd_scene load_steps=8 format=3 uid="uid://bnkfa4uraq6k5"]
 
 [ext_resource type="Script" path="res://Levels/main_level.gd" id="1_3800w"]
-[ext_resource type="Texture2D" uid="uid://cnyp3j8utf76g" path="res://icon.svg" id="1_a31oy"]
 [ext_resource type="PackedScene" uid="uid://day7v111rnsk0" path="res://Player/player.tscn" id="1_u7qmr"]
+[ext_resource type="Texture2D" uid="uid://cpwpvx4llmybc" path="res://Assets/FreeVector-Soccer-Field-Vector.jpg" id="3_201nj"]
 [ext_resource type="PackedScene" uid="uid://xbs27udpp45r" path="res://Enemies/enemy.tscn" id="3_bn8ic"]
 [ext_resource type="Script" path="res://Levels/EnemySpawner.gd" id="3_dwgns"]
 [ext_resource type="PackedScene" uid="uid://de6uuxjirghi7" path="res://Menus/game_screens.tscn" id="6_pljid"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pr42h"]
+size = Vector2(1712.5, 80)
 
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_3800w")
 
 [node name="Player" parent="." instance=ExtResource("1_u7qmr")]
-position = Vector2(226, 128)
+position = Vector2(357, 292)
 base_speed = 200.0
 
 [node name="LevelContents" type="Node2D" parent="."]
 
-[node name="Background" type="Sprite2D" parent="LevelContents"]
-modulate = Color(0.027451, 1, 0.231373, 0.729412)
-scale = Vector2(7.55738, 7.97727)
-texture = ExtResource("1_a31oy")
+[node name="BG" type="Sprite2D" parent="LevelContents"]
+position = Vector2(360, 279)
+scale = Vector2(1.67255, 1.67255)
+texture = ExtResource("3_201nj")
 
-[node name="Background2" type="Sprite2D" parent="LevelContents"]
-modulate = Color(0.027451, 1, 0.231373, 0.729412)
-position = Vector2(970, 0)
-scale = Vector2(7.55738, 7.97727)
-texture = ExtResource("1_a31oy")
+[node name="Border" type="StaticBody2D" parent="LevelContents"]
+collision_layer = 8
 
-[node name="Background3" type="Sprite2D" parent="LevelContents"]
-modulate = Color(0.027451, 1, 0.231373, 0.729412)
-position = Vector2(-4.32767, 1009.55)
-scale = Vector2(7.55738, 7.97727)
-texture = ExtResource("1_a31oy")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelContents/Border"]
+position = Vector2(359.25, -400)
+shape = SubResource("RectangleShape2D_pr42h")
 
-[node name="Background4" type="Sprite2D" parent="LevelContents"]
-modulate = Color(0.027451, 1, 0.231373, 0.729412)
-position = Vector2(965.672, 1009.55)
-scale = Vector2(7.55738, 7.97727)
-texture = ExtResource("1_a31oy")
+[node name="Border2" type="StaticBody2D" parent="LevelContents"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelContents/Border2"]
+position = Vector2(359, 959)
+shape = SubResource("RectangleShape2D_pr42h")
+
+[node name="Border3" type="StaticBody2D" parent="LevelContents"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelContents/Border3"]
+position = Vector2(1256, 276)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_pr42h")
+
+[node name="Border4" type="StaticBody2D" parent="LevelContents"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelContents/Border4"]
+position = Vector2(-535, 276)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_pr42h")
 
 [node name="EnemyContainer" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -53,28 +68,22 @@ autostart = true
 [node name="EnemySpawnPoints" type="Node2D" parent="EnemyContainer"]
 
 [node name="Marker2D" type="Marker2D" parent="EnemyContainer/EnemySpawnPoints"]
-position = Vector2(-561, -14)
+position = Vector2(-523, -398)
 
 [node name="Marker2D2" type="Marker2D" parent="EnemyContainer/EnemySpawnPoints"]
-position = Vector2(-561, 894)
-
-[node name="Marker2D3" type="Marker2D" parent="EnemyContainer/EnemySpawnPoints"]
-position = Vector2(-47, 1595)
-
-[node name="Marker2D4" type="Marker2D" parent="EnemyContainer/EnemySpawnPoints"]
-position = Vector2(966, 1595)
-
-[node name="Marker2D7" type="Marker2D" parent="EnemyContainer/EnemySpawnPoints"]
-position = Vector2(1, -650)
+position = Vector2(-508, 947)
 
 [node name="Marker2D8" type="Marker2D" parent="EnemyContainer/EnemySpawnPoints"]
-position = Vector2(1014, -650)
+position = Vector2(1228, -395)
 
 [node name="Marker2D5" type="Marker2D" parent="EnemyContainer/EnemySpawnPoints"]
-position = Vector2(1531, 970)
+position = Vector2(1240, 945)
 
 [node name="Marker2D6" type="Marker2D" parent="EnemyContainer/EnemySpawnPoints"]
-position = Vector2(1531, -18)
+position = Vector2(1261, 277)
+
+[node name="Marker2D7" type="Marker2D" parent="EnemyContainer/EnemySpawnPoints"]
+position = Vector2(-536, 280)
 
 [node name="GameTimer" type="Timer" parent="."]
 wait_time = 300.0

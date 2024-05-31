@@ -1,20 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccqiwdbghdlu1"]
+[gd_scene load_steps=5 format=3 uid="uid://ccqiwdbghdlu1"]
 
-[ext_resource type="Texture2D" uid="uid://cnyp3j8utf76g" path="res://icon.svg" id="1_5508c"]
 [ext_resource type="Script" path="res://Weapons/projectile.gd" id="1_en4s8"]
+[ext_resource type="Texture2D" uid="uid://btq1hu6x8k7by" path="res://Assets/sheet_equipment.png" id="2_bfdc4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fu51"]
+atlas = ExtResource("2_bfdc4")
+region = Rect2(89, 36.5142, 18, 17.1616)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_obuoi"]
+radius = 20.0998
 
 [node name="Projectile" type="Area2D"]
 collision_layer = 2
-collision_mask = 6
+collision_mask = 14
 script = ExtResource("1_en4s8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0.054902, 0, 1)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_5508c")
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_6fu51")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-scale = Vector2(0.2, 0.2)
-polygon = PackedVector2Array(64, -59.6, 64, 59, 59.6, 64, -59, 64, -64, 59.6, -64, -59.6, -59, -63.9, 59, -64)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_obuoi")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

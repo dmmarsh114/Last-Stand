@@ -44,6 +44,12 @@ text = "You died before help arrived :("
 label_settings = SubResource("LabelSettings_vkeb1")
 horizontal_alignment = 1
 
+[node name="Label3" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "(this is actually how soccer works btw)"
+label_settings = SubResource("LabelSettings_vkeb1")
+horizontal_alignment = 1
+
 [node name="RetryButton" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30

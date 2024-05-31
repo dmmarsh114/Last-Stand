@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var attack_cooldown: Timer = $AttackCooldown
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 @export var move_speed := 75.0
 var player: CharacterBody2D
@@ -28,6 +29,8 @@ func _physics_process(_delta: float) -> void:
 	if player:
 		var player_direction = position.direction_to(player.position)
 		velocity = player_direction * move_speed
+	
+	sprite_2d.rotation = velocity.angle()
 	
 	move_and_slide()
 	

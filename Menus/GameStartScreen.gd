@@ -6,7 +6,7 @@ extends Control
 @onready var instruction_label: Label = %InstructionLabel
 
 var index: int = 0
-var game_instructions := ["WASD to move", "Your gun fires automatically", "Survive 5 minutes to win", "Good Luck!"]
+var game_instructions := ["WASD to move", "You attack automatically", "Survive 5 minutes to win", "Good Luck!"]
 var button_text := ["Gotcha.", "Okay...", "What else?", "Thanks..."]
 
 func _on_controls_button_pressed() -> void:
