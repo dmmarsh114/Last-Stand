@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://day7v111rnsk0"]
+[gd_scene load_steps=5 format=3 uid="uid://day7v111rnsk0"]
 
 [ext_resource type="Texture2D" uid="uid://cnyp3j8utf76g" path="res://icon.svg" id="1_3ir77"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_5ke1i"]
 [ext_resource type="PackedScene" uid="uid://bbre2y8wquiv5" path="res://Weapons/projectile_spawner.tscn" id="3_v7udw"]
-[ext_resource type="PackedScene" uid="uid://dqilvwq54xrt1" path="res://Player/level_up_screen.tscn" id="4_hnaxn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uq8vd"]
 radius = 64.0781
@@ -37,6 +36,3 @@ offset_right = 51.0
 offset_bottom = -69.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="LevelUpScreen" parent="." instance=ExtResource("4_hnaxn")]
-visible = false

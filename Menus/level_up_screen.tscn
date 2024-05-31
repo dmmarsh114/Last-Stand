@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqilvwq54xrt1"]
 
-[ext_resource type="Script" path="res://Player/level_up_screen.gd" id="1_sex4t"]
+[ext_resource type="Script" path="res://Menus/level_up_screen.gd" id="1_5see0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_obrfj"]
 font_size = 50
@@ -16,7 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_sex4t")
+script = ExtResource("1_5see0")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -55,13 +55,13 @@ text = "Increase Damage"
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
-text = "Increase Speed"
+text = "Increase Move Speed"
 
 [node name="ReduceAttackCooldown" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
-text = "Reduce Attack Cooldown
+text = "Increase Attack Speed
 "
 
 [node name="RestoreHealth" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]

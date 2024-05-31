@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://de6uuxjirghi7"]
+
+[ext_resource type="PackedScene" uid="uid://dyrsxgerm6dx5" path="res://Menus/victory_screen.tscn" id="1_p7h0b"]
+[ext_resource type="PackedScene" uid="uid://t76yxq6bmwxo" path="res://Menus/game_over_screen.tscn" id="2_x8gvb"]
+[ext_resource type="PackedScene" uid="uid://dqilvwq54xrt1" path="res://Menus/level_up_screen.tscn" id="3_md3k3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mkkiv"]
+font_size = 45
+
+[node name="GameScreens" type="CanvasLayer"]
+process_mode = 3
+
+[node name="VictoryScreen" parent="." instance=ExtResource("1_p7h0b")]
+visible = false
+mouse_filter = 1
+
+[node name="GameOverScreen" parent="." instance=ExtResource("2_x8gvb")]
+visible = false
+mouse_filter = 1
+
+[node name="LevelUpScreen" parent="." instance=ExtResource("3_md3k3")]
+visible = false
+mouse_filter = 1
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TimeLeftLabel" type="Label" parent="HUD"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -203.5
+offset_right = 203.5
+offset_bottom = 63.0
+grow_horizontal = 2
+text = "Time Left: 00:00:00"
+label_settings = SubResource("LabelSettings_mkkiv")
+horizontal_alignment = 1

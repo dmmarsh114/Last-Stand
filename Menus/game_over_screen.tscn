@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://t76yxq6bmwxo"]
+
+[ext_resource type="Script" path="res://Menus/game_over_screen.gd" id="1_ccgjd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qac36"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_vkeb1"]
+font_size = 35
+
+[node name="GameOverScreen" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ccgjd")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Game Over!"
+label_settings = SubResource("LabelSettings_qac36")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "You died before help arrived :("
+label_settings = SubResource("LabelSettings_vkeb1")
+horizontal_alignment = 1
+
+[node name="RetryButton" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Play Again"
+
+[node name="QuitButton" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,11 +1,12 @@
 
 - Fix aiming issue
-> Add game timer
+- Add game timer
 > Enemy spawn/damage scales over time
-> Add main menu, pause, and game over screens
+- Add main menu, pause, and game over screens
 > Set level boundaries
 > New enemy types
 
+> Pause menu?
 > Score system?
 > Assets
 > Level up Particle effects
