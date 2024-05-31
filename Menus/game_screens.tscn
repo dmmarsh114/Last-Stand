@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://de6uuxjirghi7"]
+[gd_scene load_steps=6 format=3 uid="uid://de6uuxjirghi7"]
 
 [ext_resource type="PackedScene" uid="uid://dyrsxgerm6dx5" path="res://Menus/victory_screen.tscn" id="1_p7h0b"]
 [ext_resource type="PackedScene" uid="uid://t76yxq6bmwxo" path="res://Menus/game_over_screen.tscn" id="2_x8gvb"]
 [ext_resource type="PackedScene" uid="uid://dqilvwq54xrt1" path="res://Menus/level_up_screen.tscn" id="3_md3k3"]
+[ext_resource type="PackedScene" uid="uid://bgs27v3m5yk2r" path="res://Menus/game_start_screen.tscn" id="4_no8st"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mkkiv"]
 font_size = 45
@@ -22,7 +23,10 @@ mouse_filter = 1
 visible = false
 mouse_filter = 1
 
+[node name="GameStartScreen" parent="." instance=ExtResource("4_no8st")]
+
 [node name="HUD" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
