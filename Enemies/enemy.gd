@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var attack_cooldown: Timer = $AttackCooldown
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var enemy_container = get_parent()
 
 @export var move_speed := 75.0
 var player: CharacterBody2D
@@ -13,9 +14,7 @@ var hitpoints : int:
 	set(value):
 		hitpoints = value
 		if hitpoints <= 0:
-			var new_xp := xp_scene.instantiate()
-			get_parent().add_child(new_xp)
-			new_xp.global_position = global_position
+			spawn_xp()
 			queue_free()
 
 @export var xp_scene: PackedScene
@@ -46,3 +45,8 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 func _on_attack_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		is_attacking = false
+
+func spawn_xp() -> void:
+	var new_xp := xp_scene.instantiate()
+	enemy_container.add_child.call_deferred(new_xp)
+	new_xp.global_position = global_position
