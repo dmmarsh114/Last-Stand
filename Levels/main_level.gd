@@ -6,6 +6,9 @@ extends Node2D
 @onready var time_left_label: Label = $GameScreens/HUD/TimeLeftLabel
 @onready var game_timer: Timer = $GameTimer
 
+@export var enemy_spawn_time_curve: Curve
+@export var enemy_move_speed_curve: Curve
+
 func _ready() -> void:
 	Globals.player_speed_mult = 0
 	Globals.player_damage_mult = 0
@@ -33,3 +36,12 @@ func _format_seconds(time : float, use_milliseconds : bool) -> String:
 	var milliseconds := fmod(time, 1) * 100
 
 	return "%02d:%02d:%02d" % [minutes, seconds, milliseconds]
+
+func game_progress_ratio() -> float:
+	return 1.0 - (game_timer.time_left / game_timer.wait_time)
+
+func get_enemy_spawn_time() -> float:
+	return enemy_spawn_time_curve.sample(game_progress_ratio())
+
+func get_enemy_speed() -> float:
+	return enemy_move_speed_curve.sample(game_progress_ratio())

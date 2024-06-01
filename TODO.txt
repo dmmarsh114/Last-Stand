@@ -1,6 +1,5 @@
 TODO
 > TUNING
-> Enemy spawn and speed scales over time
 > lock camera to level boundaries
 > New enemy types
 > SFX
@@ -10,6 +9,7 @@ STRETCH
 > Score system?
 
 DONE
+- Enemy spawn and speed scales over time
 - Fix aiming issue
 - Add game timer
 - Add main menu, pause, and game over screens
@@ -32,4 +32,4 @@ add new weapon type -> shooting shit is fun
 assets look blurry
 	scale assets down? 
 
-player snaps to looking to the right when no input
+- (FIXED) player snaps to looking to the right when no input

@@ -55,7 +55,6 @@ func move() -> void:
 	
 	sprite_2d.rotation = previous_sprite_rotation
 	
-	
 	move_and_slide()
 
 func level_up() -> void:
