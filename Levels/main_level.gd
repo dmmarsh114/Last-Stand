@@ -12,7 +12,7 @@ func _ready() -> void:
 	Globals.player_cooldown_mult = 0
 
 func _process(_delta: float) -> void:
-	time_left_label.text = "Time Left: " + _format_seconds(game_timer.time_left, true)
+	time_left_label.text = "Time Left: " + _format_seconds(game_timer.time_left, false)
 
 func _on_game_timer_timeout() -> void:
 	victory_screen.open_victory_screen()

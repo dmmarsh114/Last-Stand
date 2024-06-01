@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgs27v3m5yk2r"]
+[gd_scene load_steps=8 format=3 uid="uid://bgs27v3m5yk2r"]
 
 [ext_resource type="Script" path="res://Menus/GameStartScreen.gd" id="1_3r6nv"]
+[ext_resource type="Theme" uid="uid://bbev8htjfj16i" path="res://Assets/basic_theme.tres" id="1_cxcrx"]
 [ext_resource type="PackedScene" uid="uid://bnkfa4uraq6k5" path="res://Levels/main_level.tscn" id="2_tias0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dloyr"]
@@ -23,6 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_cxcrx")
 script = ExtResource("1_3r6nv")
 main_level = ExtResource("2_tias0")
 

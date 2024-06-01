@@ -26,6 +26,8 @@ var current_xp := 0:
 		if current_xp >= xp_to_next_level:
 			level_up()
 
+var previous_sprite_rotation: float = 0.0
+
 func _ready() -> void:
 	hitpoints = max_hitpoints
 	health_bar.value = hitpoints
@@ -45,7 +47,14 @@ func move() -> void:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.y = move_toward(velocity.y, 0, speed)
 	
-	sprite_2d.rotation = velocity.angle()
+	# direction player sprite should face
+	var current_angle: float = velocity.angle()
+	if current_angle != previous_sprite_rotation and velocity != Vector2.ZERO:
+		sprite_2d.rotation = current_angle
+		previous_sprite_rotation = current_angle
+	
+	sprite_2d.rotation = previous_sprite_rotation
+	
 	
 	move_and_slide()
 

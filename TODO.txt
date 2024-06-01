@@ -1,24 +1,35 @@
-
+TODO
 > TUNING
-- Fix aiming issue
-- Add game timer
 > Enemy spawn and speed scales over time
-- Add main menu, pause, and game over screens
-- Set level boundaries
+> lock camera to level boundaries
 > New enemy types
-
-> Fonts
-> Text outlines
-
-> Pause menu?
-> Score system?
-- Assets
-- Level up Particle effects
 > SFX
 
+STRETCH
+> Pause menu?
+> Score system?
 
-health bars for enemies? If you've hit them?
+DONE
+- Fix aiming issue
+- Add game timer
+- Add main menu, pause, and game over screens
+- Set level boundaries
+- Fonts
+- Text outlines
+- Assets
+- Level up Particle effects
+
+FEEDBACK
+
+leveling up damage doesn't feel significant
+	health bars for enemies? If you've hit them?
+	damage numbers?
+
+BUG: ball moves when you move in the opposite direction?
+
 add new weapon type -> shooting shit is fun
-ball moves when you move in the opposite direction?
-scale assets down? 
 
+assets look blurry
+	scale assets down? 
+
+player snaps to looking to the right when no input

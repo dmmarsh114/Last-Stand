@@ -9,16 +9,13 @@ extends Node2D
 func _ready() -> void:
 	cooldown_timer.wait_time = base_cooldown_time
 
-func _process(_delta: float) -> void:
-	pass
-
 func _on_cooldown_timer_timeout() -> void:
 	var target = find_target()
 	if target:
 		look_at(target.position)
 		spawn_projectile()
 	cooldown_timer.wait_time = base_cooldown_time - (Globals.player_cooldown_mult * base_cooldown_time)
-	printt("New wait time: " + str(cooldown_timer.wait_time), "Mult: " + str(Globals.player_cooldown_mult))
+	#printt("New wait time: " + str(cooldown_timer.wait_time), "Mult: " + str(Globals.player_cooldown_mult))
 	cooldown_timer.start()
 
 func find_target() -> Node2D:
