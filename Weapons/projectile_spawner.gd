@@ -6,6 +6,7 @@ extends Node2D
 
 @export var base_cooldown_time := 5.0
 
+var kickSound = preload("res://Assets/555042__bittermelonheart__soccer-ball-kick.wav")
 func _ready() -> void:
 	cooldown_timer.wait_time = base_cooldown_time
 
@@ -37,4 +38,6 @@ func find_target() -> Node2D:
 func spawn_projectile() -> void:
 	var new_projectile = projectile_scene.instantiate()
 	add_child(new_projectile)
+	$AudioStreamPlayer2D.stream = kickSound
+	$AudioStreamPlayer2D.play()
 	new_projectile.global_position = global_position
