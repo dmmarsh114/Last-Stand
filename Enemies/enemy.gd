@@ -40,7 +40,9 @@ func _physics_process(_delta: float) -> void:
 			attack_cooldown.start()
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
-	is_attacking = true
+	if body.is_in_group("player"):
+		is_attacking = true
 
 func _on_attack_area_body_exited(body: Node2D) -> void:
-	is_attacking = false
+	if body.is_in_group("player"):
+		is_attacking = false

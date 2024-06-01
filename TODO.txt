@@ -2,7 +2,7 @@
 > TUNING
 - Fix aiming issue
 - Add game timer
-> Enemy spawn/damage scales over time
+> Enemy spawn and speed scales over time
 - Add main menu, pause, and game over screens
 - Set level boundaries
 > New enemy types
@@ -15,3 +15,10 @@
 - Assets
 - Level up Particle effects
 > SFX
+
+
+health bars for enemies? If you've hit them?
+add new weapon type -> shooting shit is fun
+ball moves when you move in the opposite direction?
+scale assets down? 
+

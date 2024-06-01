@@ -32,7 +32,7 @@ func _ready() -> void:
 	xp_bar.value = current_xp
 	xp_bar.max_value = xp_to_next_level
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	move()
 
 func move() -> void:

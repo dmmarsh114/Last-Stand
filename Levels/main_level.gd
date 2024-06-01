@@ -6,7 +6,12 @@ extends Node2D
 @onready var time_left_label: Label = $GameScreens/HUD/TimeLeftLabel
 @onready var game_timer: Timer = $GameTimer
 
-func _process(delta: float) -> void:
+func _ready() -> void:
+	Globals.player_speed_mult = 0
+	Globals.player_damage_mult = 0
+	Globals.player_cooldown_mult = 0
+
+func _process(_delta: float) -> void:
 	time_left_label.text = "Time Left: " + _format_seconds(game_timer.time_left, true)
 
 func _on_game_timer_timeout() -> void:

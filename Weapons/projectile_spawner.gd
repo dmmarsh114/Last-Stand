@@ -9,7 +9,7 @@ extends Node2D
 func _ready() -> void:
 	cooldown_timer.wait_time = base_cooldown_time
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _on_cooldown_timer_timeout() -> void:
